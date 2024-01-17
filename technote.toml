@@ -15,7 +15,6 @@ state = "draft"
 [[technote.authors]]
 name.given = "Christine"
 name.family = "Banek"
-orcid = ""
 internal_id = "banekc"
 [[technote.authors.affiliations]]
 name = "Rubin Observatory Project Office"
