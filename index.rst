@@ -43,7 +43,7 @@ Restructuring of the Phalanx Repository
 =======================================
 
 ArgoCD Project Definition
-=========================
+-------------------------
 
 One thing to point out is that the layout of the Phalanx git repository
 is completely unrelated to how ArgoCD lays out the applications and
@@ -60,7 +60,7 @@ So this means that we can reorganize these files as we want without
 or with changing the project name.
 
 Potential Project Lists
-=======================
+-----------------------
 
 First we need to see how we want to break down the monolith into
 separate projects.  These projects may be related to their usage,
@@ -99,7 +99,7 @@ deployed, or anything else we deem necessary.
    - all the telescope services
 
 1: Breaking up the applications directory
-=========================================
+-----------------------------------------
 
 In the applications directory, create one directory for each project in
 the section above, and use gitmv to move each directory in applications
@@ -110,7 +110,7 @@ to add the project name into the path.  At this point, things should
 still work without any other changes.
 
 2: Break up the environments directory
-======================================
+--------------------------------------
 
 Now in the environments/templates directory, you will find one yaml
 per application in the applications directory.  Make directories with
@@ -126,7 +126,7 @@ At this point, things should still work for us all by itself and
 not doing further steps.
 
 3: Add project level to environment values.yaml
-===============================================
+-----------------------------------------------
 
 Now this has absolutely nothing to do with argocd and really offers
 no technical benefit, but it does maybe offer a little bit less
@@ -143,17 +143,17 @@ applications:
 Sometimes containing all the applications.
 
 So now that we are breaking things up on projects, this allows
-for one additional level of hierarchy and some syntatic sugar.
+for one additional level of hierarchy and some syntatic sugar::
 
-applications:
-  infrastructure:
-    enabled: true
-  rsp:
-    portal: true
-    nublado: true
-    tap: true
-  telescope:
-    enabled: false
+        applications:
+          infrastructure:
+            enabled: true
+          rsp:
+            portal: true
+            nublado: true
+            tap: true
+          telescope:
+            enabled: false
 
 I think each project should pick that it is either a "salad bar"
 type project, where you pick what you want, or an "all-or-nothing"
@@ -166,7 +166,7 @@ each other.  For example, ArgoCD relies on ingress-nginx, and
 vault-secrets-operator is required by many of the applications.
 
 4. Project Organization
-=======================
+-----------------------
 
 At this point, after doing the reorganizations in the above sections,
 the current people who can access ArgoCD can try out some of the UI
@@ -175,7 +175,7 @@ some help and will give us ideas that we are on the right track
 with how the UI works.
 
 5. Adding RBAC To Each Project
-==============================
+------------------------------
 
 Now we will talk about how to assign projects to groups of users.
 We can either assign specific users to the access rules, or try
