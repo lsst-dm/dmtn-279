@@ -5,8 +5,6 @@ Organization of Phalanx into projects
 Abstract
 ========
 
-.. abstract::
-
    Phalanx is currently a very flat structure, with no hierarchy or security controls beyond being able to login to ArgoCD.  Here we will propose a structure to the Phalanx repository to allow for different projects and access control to those projects.
 
 Problem Statement
@@ -202,6 +200,6 @@ Here's an example of a policy for a generic project named infrastructure::
         p, role:infrastructure, exec, action/*, infrastructure/*, allow
         p, role:infrastructure, logs, get, infrastructure/*, allow
 
-And give them read-only access to other projects:
+And give them read-only access to other projects::
 
-g, role:infrastructure, role:readonly
+        g, role:infrastructure, role:readonly
