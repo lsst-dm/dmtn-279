@@ -158,8 +158,9 @@ for one additional level of hierarchy and some syntatic sugar::
 I think each project should pick that it is either a "salad bar"
 type project, where you pick what you want, or an "all-or-nothing"
 project like infrastructure.  This prevents complications where
-you have both enabled and applications, and trying to handle
-special rules would make things more confusing.
+you have both enabled and certain applications individually set,
+and trying to handle special priority rules would make things
+more confusing than a complete manifest of applications.
 
 Also many of the projects contain applications that rely on
 each other.  For example, ArgoCD relies on ingress-nginx, and
